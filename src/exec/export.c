@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 09:26:22 by bgrulois          #+#    #+#             */
-/*   Updated: 2022/12/02 17:42:05 by bgrulois         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:47:56 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ int	export(t_shell *shell, char **av, t_envp_cpy **envpc_lst)
 				mod_env_var(av[i], *envpc_lst, mode);
 			else
 			{
-				tmp = ft_strdup(av[i]);
+				tmp = check_plus_in_exp(av[i], mode);
 				ft_env_varadd_back(envpc_lst,
 					ft_envpcnew(tmp));
 				free(tmp);

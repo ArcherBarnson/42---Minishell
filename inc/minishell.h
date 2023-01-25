@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 09:44:25 by mbourgeo          #+#    #+#             */
-/*   Updated: 2022/12/06 12:49:00 by jtaravel         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:41:39 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -959,5 +959,6 @@ t_shell			*minishell_init(char **envp);
 void			minishell_loop(t_shell *shell);
 void			reset_shell_values(t_shell *shell);
 int				ft_free_commandtokenlol(t_command *command);
+char			*check_plus_in_exp(char *exp, int mode);
 
 #endif

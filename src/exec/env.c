@@ -6,7 +6,7 @@
 /*   By: bgrulois <bgrulois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 17:39:27 by bgrulois          #+#    #+#             */
-/*   Updated: 2022/11/29 20:37:09 by bgrulois         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:46:03 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,29 @@ int	env(t_shell *shell, char **envp, int mode)
 		i++;
 	}
 	return (0);
+}
+
+char	*check_plus_in_exp(char *exp, int mode)
+{
+	int		i;
+	char	*save;
+
+	if (mode != 2)
+		save = ft_strdup(exp);
+	else
+	{
+		i = 0;
+		while (exp[i])
+		i++;
+		save = malloc(sizeof(char) * i);
+		if (!save)
+			return (NULL);
+		i = -1;
+		while (exp[++i] != '+')
+			save[i] = exp[i];
+		while (exp[++i])
+			save[i - 1] = exp[i];
+		save[i - 1] = '\0';
+	}
+	return (save);
 }

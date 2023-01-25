@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 08:53:58 by bgrulois          #+#    #+#             */
-/*   Updated: 2023/01/25 17:43:23 by bgrulois         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:37:15 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,16 @@ int	export_error(char *str, int i, int error_type)
 		write(2, "Needs a variable name before '=' operator\n", 43);
 		return (0);
 	}
-	if (error_type == 1)
+	else if (error_type == 1)
 	{
 		write(2, &str[i], 1);
 		write(2, " : Invalid identifier before '='\n", 34);
+		return (0);
+	}
+	else if (error_type == 2)
+	{
+		write(2, &str[i], ft_strlen(str));
+		write(2, " : Not a valid identifier\n", 27);
 		return (0);
 	}
 	return (0);
@@ -92,7 +98,7 @@ int	is_valid_string(char *str)
 		{
 			if (str[i + 1] == '=')
 				return (2);
-			return (0);
+			return (export_error(str, 0, 2));
 		}
 		i++;
 	}
