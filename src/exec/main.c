@@ -6,7 +6,7 @@
 /*   By: bgrulois <bgrulois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 11:42:08 by bgrulois          #+#    #+#             */
-/*   Updated: 2022/12/06 12:50:49 by jtaravel         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:13:04 by bgrulois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,8 @@ int	main(int ac, char **av, char **envp)
 			"This shell doesn't handle non-interactive mode, exiting...\n", 60);
 		return (-1);
 	}
+	if (!envp[0])
+		envp = build_minimal_env();
 	shell = minishell_init(envp);
 	free_heredoc(shell, 0);
 	if (!shell)
