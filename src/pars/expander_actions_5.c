@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 04:36:03 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/01/26 01:38:46 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/01/26 02:38:50 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ char	*ft_find_envstr(char *str, t_pars *pars)
 		if (k == -1)
 			return (NULL);
 		comp_str = ft_substr(pars->ms_env[i], 0, k);
-		if (!ft_strncmp(str, comp_str,
-				ft_max_size(ft_strlen(str), ft_strlen(comp_str))))
+		if (ft_strcmp(str, comp_str))
 		{
 			free(comp_str);
 			return (pars->ms_env[i] + k + 1);
@@ -46,12 +45,4 @@ int	ft_exp_end(t_pars *pars)
 int	ft_exp_err(t_pars *pars)
 {
 	return (1 + pars->new_exp_decision.exp_read_mode);
-}
-
-size_t	ft_max_size(size_t a, size_t b)
-{
-	if (a < b)
-		return (b);
-	else
-		return (a);
 }
