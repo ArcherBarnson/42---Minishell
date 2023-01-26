@@ -6,7 +6,7 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 00:47:14 by mbourgeo          #+#    #+#             */
-/*   Updated: 2022/12/01 04:47:04 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/01/26 14:35:29 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_init_pars_decision_1(t_pars *pars)
 	pars->pars_decision[NEW_PARS_RD_MD][TOK_ERR_DBL]
 		= (t_pars_proc){PARS_TAKE, PARS_KEEP, GT_PARS_RD_MD};
 	pars->pars_decision[NEW_PARS_RD_MD][TOK_END_OF_INPUT]
-		= (t_pars_proc){PARS_SKIP, PARS_END, NEW_PARS_RD_MD};
+		= (t_pars_proc){PARS_NONE, PARS_ERR, SYN_ERR_PARS_RD_MD};
 	return (0);
 }
 

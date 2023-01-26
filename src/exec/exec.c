@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 14:49:33 by bgrulois          #+#    #+#             */
-/*   Updated: 2023/01/26 12:28:38 by bgrulois         ###   ########.fr       */
+/*   Updated: 2023/01/26 14:38:26 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	simple_exec(t_shell *shell, char **envp)
 		free(pid);
 		child_signals();
 		execute_command(shell, envp, is_builtin);
-		exit(0);
+		exit(1);
 	}
 	close_cmd_fds(shell->cmd);
 	free_cmd_if(shell);
