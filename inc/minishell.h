@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 09:44:25 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/01/25 18:41:39 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/01/26 01:36:30 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -825,6 +825,7 @@ char			*ft_find_envstr(char *str, t_pars *pars);
 int				ft_find_eq(char *env_str);
 int				ft_exp_end(t_pars *pars);
 int				ft_exp_err(t_pars *pars);
+size_t			ft_max_size(size_t a, size_t b);
 
 /* ************************************************************************** */
 /*                          redirector_actions.c                              */
