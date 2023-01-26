@@ -6,7 +6,7 @@
 /*   By: bgrulois <bgrulois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 08:25:21 by bgrulois          #+#    #+#             */
-/*   Updated: 2022/12/06 11:12:30 by bgrulois         ###   ########.fr       */
+/*   Updated: 2023/01/26 14:45:55 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	command_not_found(t_shell *shell)
 		write(2, shell->cmd->token[0], ft_strlen(shell->cmd->token[0]));
 		write(2, " : Command not found\n", 21);
 		shell->exit_status = 127;
+		g_exit_code = 127;
 		return (127);
 	}
 	tmp_fd = open(shell->cmd->cmd, O_RDONLY);
@@ -72,6 +73,7 @@ int	command_not_found(t_shell *shell)
 		write(2, shell->cmd->token[0], ft_strlen(shell->cmd->token[0]));
 		write(2, " : permission denied\n", 22);
 		shell->exit_status = 126;
+		g_exit_code = 126;
 		return (126);
 	}
 	if (tmp_fd > 0)
